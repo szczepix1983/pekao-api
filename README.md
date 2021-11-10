@@ -1,4 +1,4 @@
-# API dla usług banku PEKAO SA
+# API do obsługi usług banku PEKAO SA
 
 ## 1. Wymagania
 ### 1.1. Środowisko wykonawcze
@@ -52,11 +52,11 @@ boolean status = this.authService.authorize(
 Po nawiązaniu sesji z bankiem można korzytać z usług dostępnych w paczce `pl.pekao24.api.domains`.  
 
 ## 4. Ograniczenia
-Projekt wykorystuje dostępy do bankowości internetowej w celu nawiązania sesji z bankiem, umożliwia to dalsze korzystanie z API w celu pozyskania podstawowych informacji nt. uwierzytelnionego użytkownika tj. historia transakcji, dane personalne, informacje dot. konta czy produktów bankowych. Dostępne śa funkcje które udsotępnia bank przez co biblioteka nie może dostaczać innych funkcjonalności. 
+Projekt wykorzystuje dostępy do bankowości internetowej w celu nawiązania sesji z bankiem, umożliwia to dalsze korzystanie z API w celu pozyskania podstawowych informacji nt. uwierzytelnionego użytkownika tj. historia transakcji, dane personalne, informacje dot. konta czy produktów bankowych. Dostępne są funkcje które udostępnia bank przez co biblioteka nie może dostarczać innych funkcjonalności. 
 
 ## 5. Podsumowanie
 Biblioteka jest Open Source, w przypadku jakichkolwiek obaw proszę o zapoznanie się ze źródłami. Projekt jest w fazie BETA. 
 
-Nie należy publikować projektu w którym użyte są dostępy do konta bankowego na publicznych repozytoriach tj. github (należy pamiętać o dodaniu credentials.properties do ignore).
+Nie należy publikować projektu w którym użyte są dostępy do konta bankowego na publicznych repozytoriach tj. github (należy pamiętać o dodaniu `credentials.properties` do ignore).
 
-Bezwględnie, nie należy używać biblioteki w celach niezgodnych z prawem np. do ataków DDOS czy innego typu zagrożeń sieciowych które mogłyby zagrozić prawidlowemu działaniu banku PEKAO SA.
+Bezwględnie, nie należy używać biblioteki w celach niezgodnych z prawem np. do ataków DDOS czy innego typu zagrożeń sieciowych które mogłyby zagrozić prawidlowemu działaniu banku PEKAO SA - biblioteka do użytku tylko i wyłącznie na potrzeby klienta banku.

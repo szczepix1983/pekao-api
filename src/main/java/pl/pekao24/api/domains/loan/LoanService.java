@@ -20,19 +20,19 @@ public class LoanService {
         this.client = new HttpClient(interceptor);
     }
 
-    public LoanOfferResponse loanOffer() {
+    public LoanOfferResponse offer() {
         return client.get(
                 Api.LOAN_OFFER,
                 LoanOfferResponse.class).getBody();
     }
 
-    public LoanSummaryResponse[] loanSummary() {
+    public LoanSummaryResponse[] summary() {
         return client.get(
                 Api.LOAN_SUMMARY,
                 LoanSummaryResponse[].class).getBody();
     }
 
-    public LoanDetailsResponse loanDetails(final String id) {
+    public LoanDetailsResponse details(final String id) {
         Map<String, String> params = new HashMap<>();
         params.put("id", id);
         return client.get(

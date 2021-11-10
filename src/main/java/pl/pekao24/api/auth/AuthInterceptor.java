@@ -22,8 +22,8 @@ public class AuthInterceptor extends HttpInterceptor {
 
     @Override
     public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
-        request.getHeaders().set(HttpHeaders.COOKIE, httpHeadersCache.extractCookies(Api.SINGLE_ACCESS));
-        request.getHeaders().set("x-csrf-token", httpHeadersCache.extractXCsrfToken(Api.SINGLE_ACCESS));
+        request.getHeaders().set(HttpHeaders.COOKIE, httpHeadersCache.extractCookies(Api.AUTHENTICATION_CUSTOMER_DFP_SINGLE_ACCESS));
+        request.getHeaders().set("x-csrf-token", httpHeadersCache.extractXCsrfToken(Api.AUTHENTICATION_CUSTOMER_DFP_SINGLE_ACCESS));
         request.getHeaders().set(HttpHeaders.ACCEPT, "application/json, text/plain, */*");
         request.getHeaders().set("Channel-Indicator", "DESKTOP");
 

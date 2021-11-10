@@ -20,19 +20,19 @@ public class AccountService {
         this.client = new HttpClient(interceptor);
     }
 
-    public AccountSummaryResponse[] accountSummary() {
+    public AccountSummaryResponse[] summary() {
         return client.get(
                 Api.ACCOUNT_SUMMARY,
                 AccountSummaryResponse[].class).getBody();
     }
 
-    public AccountCardDebitSummaryResponse[] accountCardDebitSummary() {
+    public AccountCardDebitSummaryResponse[] cardDebitSummary() {
         return client.get(
                 Api.ACCOUNT_CARD_DEBIT_SUMMARY,
                 AccountCardDebitSummaryResponse[].class).getBody();
     }
 
-    public AccountTransactions[] accountTransactions(final String accountIds,
+    public AccountTransactions[] transactions(final String accountIds,
                                                      final String dateFrom,
                                                      final String dateTo,
                                                      final boolean synchronize) {
@@ -45,5 +45,14 @@ public class AccountService {
                 Api.ACCOUNT_TRANSACTIONS,
                 params,
                 AccountTransactions[].class).getBody();
+    }
+
+    public String limits(final String accountIds) {
+        Map<String, String> params = new HashMap<>();
+        params.put("accountIds", accountIds);
+        return client.get(
+                Api.ACCOUNT_LIMITS,
+                params,
+                String.class).getBody();
     }
 }

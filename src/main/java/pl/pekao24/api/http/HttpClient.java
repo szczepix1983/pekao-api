@@ -2,13 +2,10 @@ package pl.pekao24.api.http;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.*;
 import pl.pekao24.api.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
@@ -57,7 +54,9 @@ public class HttpClient {
 
     protected HttpEntity<String> createRequest(final Serializable body) {
         try {
-            return new HttpEntity<>(objectMapper.writeValueAsString(body), new HttpHeaders());
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            return new HttpEntity<>(objectMapper.writeValueAsString(body), headers);
         } catch (JsonProcessingException e) {
             log.error("Error while processing request for: {}", body);
             return null;

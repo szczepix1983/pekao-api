@@ -25,7 +25,7 @@ public class LogonService {
         logonRequest.password = passwordForMask;
 
         ResponseEntity<String> responseEntity = client.post(
-                Api.LOGON,
+                Api.AUTHENTICATION_CUSTOMER_LOGON,
                 logonRequest,
                 String.class);
         return responseEntity.getStatusCode().equals(HttpStatus.OK);

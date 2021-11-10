@@ -28,8 +28,7 @@ public class LogonInterceptor extends HttpInterceptor {
         request.getHeaders().set(HttpHeaders.HOST, HttpHeadersCache.HOST);
         request.getHeaders().set(HttpHeaders.ORIGIN, HttpHeadersCache.ORIGIN);
         request.getHeaders().set(HttpHeaders.REFERER, HttpHeadersCache.REFERER);
-        request.getHeaders().set(HttpHeaders.COOKIE, StringUtils.join(httpHeadersCache.get(Api.LOGON_PASSWORD_MASK.getUrl()).get(HttpHeaders.SET_COOKIE)));
-        request.getHeaders().setContentType(MediaType.APPLICATION_JSON);
+        request.getHeaders().set(HttpHeaders.COOKIE, StringUtils.join(httpHeadersCache.get(Api.AUTHENTICATION_CUSTOMER_LOGON_PASSWORD_MASK_GET.getUrl()).get(HttpHeaders.SET_COOKIE)));
 
         logRequest(request, body);
 

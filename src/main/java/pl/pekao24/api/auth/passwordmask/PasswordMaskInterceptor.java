@@ -26,7 +26,6 @@ public class PasswordMaskInterceptor extends HttpInterceptor {
         request.getHeaders().set(HttpHeaders.HOST, HttpHeadersCache.HOST);
         request.getHeaders().set(HttpHeaders.ORIGIN, HttpHeadersCache.ORIGIN);
         request.getHeaders().set(HttpHeaders.REFERER, HttpHeadersCache.REFERER);
-        request.getHeaders().setContentType(MediaType.APPLICATION_JSON);
 
         logRequest(request, body);
 

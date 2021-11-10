@@ -16,7 +16,7 @@ public class SingleAccessService {
 
     public SingleAccessResponse getSingleAccess() {
         return client.post(
-                Api.SINGLE_ACCESS,
+                Api.AUTHENTICATION_CUSTOMER_DFP_SINGLE_ACCESS,
                 SingleAccessResponse.class).getBody();
     }
 }

@@ -22,8 +22,8 @@ public class SingleAccessInterceptor extends HttpInterceptor {
 
     @Override
     public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
-        request.getHeaders().set(HttpHeaders.COOKIE, httpHeadersCache.extractCookies(Api.LOGON));
-        request.getHeaders().set("x-csrf-token", httpHeadersCache.extractXCsrfToken(Api.LOGON));
+        request.getHeaders().set(HttpHeaders.COOKIE, httpHeadersCache.extractCookies(Api.AUTHENTICATION_CUSTOMER_LOGON));
+        request.getHeaders().set("x-csrf-token", httpHeadersCache.extractXCsrfToken(Api.AUTHENTICATION_CUSTOMER_LOGON));
 
         logRequest(request, body);
 

@@ -19,7 +19,7 @@ public class PasswordMaskService {
         PasswordMaskRequest passwordMaskRequest = new PasswordMaskRequest();
         passwordMaskRequest.customer = login;
         return client.post(
-                Api.LOGON_PASSWORD_MASK,
+                Api.AUTHENTICATION_CUSTOMER_LOGON_PASSWORD_MASK_GET,
                 passwordMaskRequest,
                 PasswordMaskResponse.class).getBody();
     }
