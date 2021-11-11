@@ -3,7 +3,7 @@ package pl.pekao24.api.domains.account.dto;
 import java.io.Serializable;
 import java.util.List;
 
-public class AccountTransactions implements Serializable {
+public class AccountTransactionsResponse implements Serializable {
     public long id;
     public boolean today;
     public boolean yesterday;

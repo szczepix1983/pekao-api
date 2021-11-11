@@ -5,7 +5,7 @@
 
     <groupId>pl.pekao24.api</groupId>
     <artifactId>pekao24-api</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>pekao24-api</name>
     <description>Api for PEKAO SA services</description>
     <packaging>jar</packaging>

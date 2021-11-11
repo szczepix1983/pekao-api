@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class LogonService {
 
-    private final HttpClient client;
+    protected HttpClient client;
 
     public LogonService(final LogonInterceptor interceptor) {
         this.client = new HttpClient(interceptor);
     }
 
-    public boolean getLogon(final String login, final String password, final String mask) {
+    public boolean logon(final String login, final String password, final String mask) {
         final String passwordForMask = PasswordUtils.unmask(password, mask);
 
         LogonRequest logonRequest = new LogonRequest();

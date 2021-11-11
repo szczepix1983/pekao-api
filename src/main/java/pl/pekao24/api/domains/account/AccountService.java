@@ -1,8 +1,9 @@
 package pl.pekao24.api.domains.account;
 
 import pl.pekao24.api.domains.account.dto.AccountCardDebitSummaryResponse;
+import pl.pekao24.api.domains.account.dto.AccountLimitsResponse;
 import pl.pekao24.api.domains.account.dto.AccountSummaryResponse;
-import pl.pekao24.api.domains.account.dto.AccountTransactions;
+import pl.pekao24.api.domains.account.dto.AccountTransactionsResponse;
 import pl.pekao24.api.auth.AuthInterceptor;
 import pl.pekao24.api.Api;
 import pl.pekao24.api.http.HttpClient;
@@ -14,7 +15,7 @@ import java.util.Map;
 @Service
 public class AccountService {
 
-    private final HttpClient client;
+    protected HttpClient client;
 
     public AccountService(final AuthInterceptor interceptor) {
         this.client = new HttpClient(interceptor);
@@ -32,10 +33,10 @@ public class AccountService {
                 AccountCardDebitSummaryResponse[].class).getBody();
     }
 
-    public AccountTransactions[] transactions(final String accountIds,
-                                                     final String dateFrom,
-                                                     final String dateTo,
-                                                     final boolean synchronize) {
+    public AccountTransactionsResponse[] transactions(final String accountIds,
+                                                      final String dateFrom,
+                                                      final String dateTo,
+                                                      final boolean synchronize) {
         Map<String, String> params = new HashMap<>();
         params.put("accountIds", accountIds);
         params.put("dateFrom", dateFrom);
@@ -44,15 +45,15 @@ public class AccountService {
         return client.get(
                 Api.ACCOUNT_TRANSACTIONS,
                 params,
-                AccountTransactions[].class).getBody();
+                AccountTransactionsResponse[].class).getBody();
     }
 
-    public String limits(final String accountIds) {
+    public AccountLimitsResponse limits(final String accountIds) {
         Map<String, String> params = new HashMap<>();
         params.put("accountIds", accountIds);
         return client.get(
                 Api.ACCOUNT_LIMITS,
                 params,
-                String.class).getBody();
+                AccountLimitsResponse.class).getBody();
     }
 }

@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class PasswordMaskService {
 
-    private final HttpClient client;
+    protected HttpClient client;
 
     public PasswordMaskService(final PasswordMaskInterceptor interceptor) {
         this.client = new HttpClient(interceptor);
     }
 
-    public PasswordMaskResponse getPasswordMask(final String login) {
+    public PasswordMaskResponse passwordMask(final String login) {
         PasswordMaskRequest passwordMaskRequest = new PasswordMaskRequest();
         passwordMaskRequest.customer = login;
         return client.post(

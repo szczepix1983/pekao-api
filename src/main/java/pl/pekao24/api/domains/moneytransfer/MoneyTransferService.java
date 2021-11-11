@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MoneyTransferService {
 
-    private final HttpClient client;
+    protected HttpClient client;
 
     public MoneyTransferService(final AuthInterceptor interceptor) {
         this.client = new HttpClient(interceptor);

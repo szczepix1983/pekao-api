@@ -14,7 +14,7 @@ import java.util.Map;
 @Service
 public class LoanService {
 
-    private final HttpClient client;
+    protected HttpClient client;
 
     public LoanService(final AuthInterceptor interceptor) {
         this.client = new HttpClient(interceptor);

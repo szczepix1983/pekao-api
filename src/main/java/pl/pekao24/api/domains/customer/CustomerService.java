@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerService {
 
-    private final HttpClient client;
+    protected HttpClient client;
 
     public CustomerService(final AuthInterceptor interceptor) {
         this.client = new HttpClient(interceptor);

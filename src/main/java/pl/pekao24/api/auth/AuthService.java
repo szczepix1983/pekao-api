@@ -25,9 +25,9 @@ public class AuthService {
     }
 
     public boolean authorize(final String login, final String password) {
-        PasswordMaskResponse passwordMaskResponse = passwordMaskService.getPasswordMask(login);
-        boolean logon = logonService.getLogon(login, password, passwordMaskResponse.passwordMask);
-        SingleAccessResponse singleAccessResponse = singleAccessService.getSingleAccess();
+        PasswordMaskResponse passwordMaskResponse = passwordMaskService.passwordMask(login);
+        boolean logon = logonService.logon(login, password, passwordMaskResponse.passwordMask);
+        SingleAccessResponse singleAccessResponse = singleAccessService.singleAccess();
         return Objects.nonNull(passwordMaskResponse) &&
                 logon &&
                 Objects.nonNull(singleAccessResponse);

@@ -11,7 +11,7 @@ import pl.pekao24.api.http.HttpClient;
 @Service
 public class DictionaryService {
 
-    private final HttpClient client;
+    protected HttpClient client;
 
     public DictionaryService(final AuthInterceptor interceptor) {
         this.client = new HttpClient(interceptor);
