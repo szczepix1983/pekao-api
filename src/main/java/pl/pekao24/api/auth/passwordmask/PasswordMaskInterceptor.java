@@ -1,13 +1,12 @@
 package pl.pekao24.api.auth.passwordmask;
 
 import org.springframework.http.HttpHeaders;
-import pl.pekao24.api.http.HttpHeadersCache;
-import pl.pekao24.api.http.HttpInterceptor;
 import org.springframework.http.HttpRequest;
-import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
+import pl.pekao24.api.http.HttpHeadersCache;
+import pl.pekao24.api.http.HttpInterceptor;
 
 import java.io.IOException;
 

@@ -21,7 +21,7 @@ public class HttpClient {
 
     private final Logger log = LoggerFactory.getLogger(HttpClient.class);
     private final ObjectMapper objectMapper = new ObjectMapper();
-    protected final RestTemplate restTemplate = new RestTemplate();
+    protected RestTemplate restTemplate = new RestTemplate();
 
     public HttpClient(final ClientHttpRequestInterceptor interceptor) {
         this.restTemplate.getInterceptors().add(interceptor);
@@ -58,7 +58,7 @@ public class HttpClient {
             headers.setContentType(MediaType.APPLICATION_JSON);
             return new HttpEntity<>(objectMapper.writeValueAsString(body), headers);
         } catch (JsonProcessingException e) {
-            log.error("Error while processing request for: {}", body);
+            log.error("Error while processing request for: {} exception: {}", body, e);
             return null;
         }
     }
